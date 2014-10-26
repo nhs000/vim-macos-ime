@@ -60,4 +60,4 @@ function s:insert_entered()
     call s:switch_cjk_ime(l:cjk_mode)
 endfunction
 
-qautocmd InsertEnter * :call s:insert_entered()
+autocmd InsertEnter * :call s:insert_entered()
