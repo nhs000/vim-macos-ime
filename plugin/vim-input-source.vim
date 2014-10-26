@@ -18,16 +18,20 @@ if exists('g:loaded_osxime')
 endif
 let g:loaded_osxime = 1
 
+if !exists('g:osxime_auto_detect')
+    let g:osxime_auto_detect = 1
+endif
+
+if !exists('g:osxime_issw_path')
+    let g:osxime_issw_path = 'issw'
+endif
+
 if !exists('g:osxime_normal_ime')
     let g:osxime_normal_ime = 'com.apple.keylayout.US'
 endif
 
 if !exists('g:osxime_cjk_ime')
     let g:osxime_cjk_ime= 'com.sogou.inputmethod.sogou.pinyin'
-endif
-
-if !exists('g:osxime_issw_path')
-    let g:osxime_issw_path = 'issw'
 endif
 
 function s:switch_normal_ime()
@@ -56,4 +60,4 @@ function s:insert_entered()
     call s:switch_cjk_ime(l:cjk_mode)
 endfunction
 
-autocmd InsertEnter * :call s:insert_entered()
+qautocmd InsertEnter * :call s:insert_entered()
