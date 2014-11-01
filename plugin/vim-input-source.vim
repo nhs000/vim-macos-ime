@@ -22,6 +22,10 @@ if !exists('g:osxime_auto_detect')
     let g:osxime_auto_detect = 1
 endif
 
+if !exists('g:osxime_insert_leave')
+    let g:osxime_insert_leave = 0
+endif
+
 if !exists('g:osxime_issw_path')
     let g:osxime_issw_path = 'issw'
 endif
@@ -60,4 +64,12 @@ function s:insert_entered()
     call s:switch_cjk_ime(l:cjk_mode)
 endfunction
 
+function s:insert_leave()
+  call s:switch_normal_ime()
+endfunction
+
 autocmd InsertEnter * :call s:insert_entered()
+
+if g:osxime_insert_leave
+  autocmd InsertLeave * :call s:insert_leave()
+endif

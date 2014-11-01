@@ -2,7 +2,7 @@
   <name>ESC to IME off (to English)</name>
   <appendix>Enable for terminal and vim</appendix>
   <identifier>private.vim.ime_off_ESC</identifier>
-  <only>TERMINAL</only>
+  <only>TERMINAL, VI</only>
   <inputsource_not>ENGLISH</inputsource_not>
   <autogen>
     __KeyToKey__ KeyCode::ESCAPE, ModifierFlag::NONE,
