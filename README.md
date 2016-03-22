@@ -2,7 +2,7 @@
 Switch input source automatically in vim for osx, modified from [vim-osx-ime](https://github.com/hongqn/vim-osx-ime).
 
 Original **vim-osx-ime** has bad performance because each time you `esc` to normal mode, ime switcher tool is invoked once, you will feel apparent lag in heavy editing.
-In contrast, **vim-osx-auto-ime** use **karabiner**, the virutal key modifier to switch IME back to US by default when you `esc` to normal mode, and you will not feel lag any more.
+In contrast, **vim-osx-auto-ime** use **[karabiner](https://pqrs.org/osx/karabiner/)**, the virutal key modifier to switch IME back to US by default when you `esc` to normal mode, and you will not feel lag any more.
 
 ## Features
 * When vim switches to insert mode:
