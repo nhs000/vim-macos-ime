@@ -1,0 +1,21 @@
+#! /usr/bin/env sh
+
+# install input-source-switcher
+
+echo 'clone input-source-switcher'
+git submodule update --init --recursive
+
+echo 'compile and install input-source-switcher'
+cd input-source-switcher
+mkdir build && cd build
+cmake ..
+make
+make install
+
+# install karabiner
+brew cask install karabiner
+cp karabiner.xml ~/Library/Application Support/Karabiner/private.xml
+
+# rehash for zsh
+echo 'rehash for zsh to recognize issw'
+rehash

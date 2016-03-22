@@ -1,0 +1,3 @@
+[submodule "input-source-switcher"]
+	path = input-source-switcher
+	url = https://github.com/vovkasm/input-source-switcher.git
