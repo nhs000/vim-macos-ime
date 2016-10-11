@@ -13,6 +13,16 @@ Switch input source automatically in vim for osx, modified from [vim-osx-ime](ht
 * Switch English IME whenever vim switchs to normal mode.
 
 ## How to install
+- If you use `NeoBundle`, then add the following codes in your `.vimrc`.
+```
+  NeoBundle 'chenhouwu/vim-osx-auto-ime', {
+   \  'build' : {
+   \    'mac' : './install',
+   \  },
+   \}
+```
+
+- Or run the following command in the plugin's directory.
 ```
 ./install
 ```
