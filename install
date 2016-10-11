@@ -11,11 +11,3 @@ mkdir build && cd build
 cmake ..
 make
 make install
-
-# install karabiner
-brew cask install karabiner
-cp karabiner.xml ~/Library/Application Support/Karabiner/private.xml
-
-# rehash for zsh
-echo 'rehash for zsh to recognize issw'
-rehash

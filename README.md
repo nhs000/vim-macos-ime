@@ -1,7 +1,5 @@
 # vim-osx-auto-ime
-Switch input source automatically in vim for osx, modified from [vim-osx-ime](https://github.com/hongqn/vim-osx-ime).
-
-Original **vim-osx-ime** has bad performance because each time you `esc` to normal mode, ime switcher tool is invoked once, causing noticable lag in heavy editing. In contrast, **vim-osx-auto-ime** use **[karabiner](https://pqrs.org/osx/karabiner/)**, the virutal key modifier to switch IME back to US by default when you `esc` to normal mode, and it's silk smooth.
+Switch input source automatically in vim for osx, modified from [vim-osx-ime](https://github.com/hongqn/vim-osx-ime), but use [issw](https://github.com/vovkasm/input-source-switcher) to switch ime.
 
 ## Features
 * When vim switches to insert mode:
@@ -15,25 +13,6 @@ Original **vim-osx-ime** has bad performance because each time you `esc` to norm
 * Switch English IME whenever vim switchs to normal mode.
 
 ## How to install
-- checkout rep together with submodules
-    ```
-    git submodule update --init --recursive
-    ```
-- build and install issw
-    ```
-    cd input-source-switcher
-    mkdir build && cd build
-    cmake ..
-    make
-    make install
-    ```
-# install karabiner
-    ```
-    brew cask install karabiner
-    cp karabiner.xml ~/Library/Application Support/Karabiner/private.xml
-    ```
-
-# rehash for zsh to recognize issw
-    ```
-    rehash
-    ```
+```
+./install
+```

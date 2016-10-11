@@ -23,7 +23,7 @@ if !exists('g:osxime_auto_detect')
 endif
 
 if !exists('g:osxime_insert_leave')
-    let g:osxime_insert_leave = 0
+    let g:osxime_insert_leave = 1
 endif
 
 if !exists('g:osxime_issw_path')
