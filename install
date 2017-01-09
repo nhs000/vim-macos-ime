@@ -7,7 +7,7 @@ git submodule update --init --recursive
 
 echo 'compile and install input-source-switcher'
 cd input-source-switcher
-mkdir build && cd build
+mkdir -p build && cd build
 cmake ..
 make
 make install
