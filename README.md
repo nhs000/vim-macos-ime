@@ -22,14 +22,14 @@ Switch input source automatically in vim for macos, modified from [vim-osx-ime](
    \}
 ```
 
-- If you use `Dein`, then add the following codes in you `.vimrc`
+- If you use `Dein`, then add the following codes in you `.toml` file
 ```
 [[plugins]]
 repo = 'chenhouwu/vim-macos-ime'
 build = './install'
 ```
 
-- Or run the following command in the plugin's directory.
+- Or install with any plugin manager, and manually run the following command in the plugin's directory.
 ```
 ./install
 ```
