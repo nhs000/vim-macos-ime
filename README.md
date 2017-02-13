@@ -1,5 +1,5 @@
 # vim-osx-auto-ime
-Switch input source automatically in vim for osx, modified from [vim-osx-ime](https://github.com/hongqn/vim-osx-ime), but use [issw](https://github.com/vovkasm/input-source-switcher) to switch ime.
+Switch input source automatically in vim for macos, modified from [vim-osx-ime](https://github.com/hongqn/vim-osx-ime), but use [issw](https://github.com/vovkasm/input-source-switcher) to switch ime.
 
 ## Features
 * When vim switches to insert mode:
@@ -15,11 +15,18 @@ Switch input source automatically in vim for osx, modified from [vim-osx-ime](ht
 ## How to install
 - If you use `NeoBundle`, then add the following codes in your `.vimrc`.
 ```
-  NeoBundle 'chenhouwu/vim-osx-auto-ime', {
+  NeoBundle 'chenhouwu/vim-macos-ime', {
    \  'build' : {
    \    'mac' : './install',
    \  },
    \}
+```
+
+- If you use `Dein`, then add the following codes in you `.vimrc`
+```
+[[plugins]]
+repo = 'chenhouwu/vim-macos-ime'
+build = './install'
 ```
 
 - Or run the following command in the plugin's directory.
