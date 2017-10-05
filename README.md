@@ -15,7 +15,7 @@ Switch input source automatically in vim for macos, modified from [vim-osx-ime](
 ## How to install
 - If you use `NeoBundle`, then add the following codes in your `.vimrc`.
 ```
-  NeoBundle 'chenhouwu/vim-macos-ime', {
+  NeoBundle 'laishua/vim-macos-ime', {
    \  'build' : {
    \    'mac' : './install',
    \  },
@@ -25,7 +25,7 @@ Switch input source automatically in vim for macos, modified from [vim-osx-ime](
 - If you use `Dein`, then add the following codes in you `.toml` file
 ```
 [[plugins]]
-repo = 'chenhouwu/vim-macos-ime'
+repo = 'laishua/vim-macos-ime'
 build = './install'
 ```
 
