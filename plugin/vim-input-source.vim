@@ -34,17 +34,34 @@ if !exists('g:osxime_normal_ime')
     let g:osxime_normal_ime = 'com.apple.keylayout.US'
 endif
 
-if !exists('g:osxime_cjk_ime')
-    let g:osxime_cjk_ime= 'com.sogou.inputmethod.sogou.pinyin'
+" Drop due to the fact sometime it's impossible to determine 
+" whether character is Japanese or Chinese
+" So let user choose which input source is being used 
+" by config in vimrc.
+if !exists('g:kanji_mode')
+    let g:kanji_ime = 'com.apple.inputmethod.Kotoeri.Japanese'
+endif
+
+if !exists('g:japanese_mode')
+    let g:japanese_ime = 'com.apple.inputmethod.Kotoeri.Japanese'
+endif
+
+if !exists('g:vietnamese_mode')
+    let g:vietnamese_ime = 'com.apple.inputmethod.VietnameseIM.VietnameseSimpleTelex'
 endif
 
 function s:switch_normal_ime()
-    call s:switch_ime(g:osxime_normal_ime)
+  call s:switch_ime(g:osxime_normal_ime)
 endfunction
 
-function s:switch_cjk_ime(cjk_mode)
-  if a:cjk_mode
-    call s:switch_ime(g:osxime_cjk_ime)
+function s:switch_mode(mode_ime)
+  echom a:mode_ime
+  if a:mode_ime == 3
+    call s:switch_ime(g:kanji_ime)
+  elseif a:mode_ime == 2
+    call s:switch_ime(g:japanese_ime)
+  elseif a:mode_ime == 1
+    call s:switch_ime(g:vietnamese_ime)
   else
     call s:switch_ime(g:osxime_normal_ime)
   endif
@@ -55,13 +72,28 @@ function s:switch_ime(ime)
 endfunction
 
 function s:insert_entered()
-    if g:osxime_auto_detect
-        let l:char = getline('.')[col('.') - 2]
-        let l:cjk_mode = l:char >= "\x80"
-    else
-        let l:cjk_mode = 1
+  if g:osxime_auto_detect
+    let l:char = getline('.')[col('.') - 3]
+    " only work when go to insert mode by append ('a' key)
+    " because vim only provides InsertEnter event
+    let l:col = col('.')
+    let l:char = matchstr(getline('.'), '\%' . col('.') . 'c.')
+    echom l:char
+    " English mode
+    if l:char < "\u80"
+      let l:mode = 0
+    " Vietnames mode
+    elseif l:char >= "\u80" && l:char <= "\u3040"
+      let l:mode = 1 
+    " Hiragana + Katanamode
+    elseif l:char >= "\u3040" && l:char <= "\u3100"
+      let l:mode = 2
+    " Kanji mode
+    else 
+      let l:mode = 3
     endif
-    call s:switch_cjk_ime(l:cjk_mode)
+  endif
+  call s:switch_mode(l:mode)
 endfunction
 
 function s:insert_leave()
